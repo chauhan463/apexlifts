@@ -1,0 +1,61 @@
+.desc {
+  color: var(--muted2);
+  font-size: 0.86rem;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.reviewOut {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeUp 0.3s ease both;
+}
+
+.reviewLine {
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  font-weight: 300;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+}
+
+/* ✅ green */
+.good {
+  border-color: rgba(57, 211, 83, 0.25);
+  background: rgba(57, 211, 83, 0.06);
+  color: #c8f7d0;
+}
+
+/* ⚠️ amber */
+.warn {
+  border-color: rgba(245, 200, 66, 0.25);
+  background: rgba(245, 200, 66, 0.06);
+  color: #faf0c0;
+}
+
+/* 🚨❌ red */
+.bad {
+  border-color: rgba(255, 92, 0, 0.3);
+  background: rgba(255, 92, 0, 0.07);
+  color: #ffd4b8;
+}
+
+/* 🎯 priority tip */
+.tip {
+  border-color: rgba(74, 158, 255, 0.25);
+  background: rgba(74, 158, 255, 0.06);
+  color: #c8dff7;
+  font-weight: 400;
+}

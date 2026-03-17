@@ -1,0 +1,164 @@
+.wrap {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Hero */
+.hero {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.heading {
+  font-family: 'Syne', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.heading span { color: var(--orange); }
+
+.tag {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--orange);
+}
+
+/* Stats grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 520px) {
+  .statsGrid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.statTile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  text-align: center;
+  animation: fadeUp 0.4s ease both;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.18s;
+}
+
+.statTile:hover { border-color: var(--border2); }
+
+.statTile::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.statTile:hover::before { transform: scaleX(1); }
+
+.statTile:nth-child(1) { animation-delay: .05s; }
+.statTile:nth-child(2) { animation-delay: .10s; }
+.statTile:nth-child(3) { animation-delay: .15s; }
+.statTile:nth-child(4) { animation-delay: .20s; }
+
+.statNum {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--orange);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.statUnit  { font-size: 0.63rem; color: var(--muted);  margin-top: 2px; }
+.statLabel { font-size: 0.71rem; color: var(--muted2); margin-top: 8px; }
+
+/* Macros grid */
+.macrosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.macroTile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.4s ease both;
+}
+
+.macroTile::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+}
+
+.p::after { background: var(--green); }
+.c::after { background: var(--blue);  }
+.f::after { background: var(--gold);  }
+
+.macroG {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.p .macroG { color: var(--green); }
+.c .macroG { color: var(--blue);  }
+.f .macroG { color: var(--gold);  }
+
+.macroNm { font-size: 0.72rem; color: var(--muted2); margin-top: 5px; }
+.macroKc { font-size: 0.66rem; color: var(--muted);  margin-top: 2px; }
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .wrap { padding: 0 4px; }
+
+  .heading { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+
+  .statNum  { font-size: 1.5rem; }
+  .statUnit { font-size: 0.6rem; }
+  .statLabel{ font-size: 0.62rem; }
+
+  /* Macros: protein full-width on top, carbs+fats side by side below */
+  .macrosGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .macroTile:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .macroG   { font-size: 1.5rem; }
+  .macroNm  { font-size: 0.7rem; }
+
+  .statTile  { padding: 14px 10px; }
+  .macroTile { padding: 16px 14px; }
+}
+
+@media (max-width: 360px) {
+  .heading { font-size: clamp(1.4rem, 7.5vw, 1.8rem); }
+  .statsGrid { grid-template-columns: 1fr 1fr; }
+}

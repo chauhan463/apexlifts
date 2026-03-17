@@ -1,0 +1,30 @@
+.wrap {
+  text-align: center;
+  padding: 4px 0;
+}
+
+.shareBtn {
+  background: linear-gradient(135deg, #ff5c00, #ff8c00);
+  display: inline-flex;
+  width: auto;
+  padding: 14px 32px;
+  gap: 10px;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+@media (max-width: 480px) {
+  .shareBtn { width: 100%; padding: 16px 20px; }
+}
+
+.shareBtn:hover {
+  background: linear-gradient(135deg, #ff7a22, #ffa020);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 92, 0, 0.35);
+}
+
+.hint {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 8px;
+}

@@ -1,0 +1,70 @@
+/* ── ContainerScroll — CSS Module ──────────────────────────────────────────
+   Adapted from Aceternity UI Tailwind classes to plain CSS.
+   Matches the ApexLifts dark design system.
+──────────────────────────────────────────────────────────────────────────── */
+
+/* Outer scroll container — tall enough to drive the scroll animation */
+.container {
+  height: 60rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 8px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    height: 80rem;
+    padding: 80px;
+  }
+}
+
+/* Inner wrapper that holds perspective context */
+.inner {
+  padding: 40px 0;
+  width: 100%;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding: 160px 0;
+  }
+}
+
+/* Hero text / titleComponent area */
+.header {
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 3D rotating card */
+.card {
+  max-width: 64rem;
+  margin: -48px auto 0;
+  height: 30rem;
+  width: 100%;
+  border: 4px solid #2a2a2a;
+  padding: 8px;
+  background: #111111;
+  border-radius: 30px;
+}
+
+@media (min-width: 768px) {
+  .card {
+    height: 40rem;
+    padding: 24px;
+  }
+}
+
+/* Inner card — clips the image/content to rounded corners */
+.cardInner {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--bg);
+  position: relative;
+}

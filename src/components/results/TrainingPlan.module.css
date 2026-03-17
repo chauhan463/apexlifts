@@ -1,0 +1,100 @@
+.desc {
+  color: var(--muted2);
+  font-size: 0.86rem;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.dayGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 460px) {
+  .dayGrid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.dayBtn {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  background: var(--bg2);
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Syne', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.dayBtn:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: var(--orange-dim);
+}
+
+.dayOn {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #fff !important;
+}
+
+.dayCheck { font-size: 0.6rem; opacity: 0.8; }
+
+.planOut {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 4px 0;
+  margin-top: 12px;
+  animation: fadeUp 0.4s ease both;
+  overflow: hidden;
+}
+
+.planDay {
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border);
+}
+.planDay:last-child { border-bottom: none; }
+
+.planDayName {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 10px;
+}
+.planDayName span { color: var(--orange); }
+
+.planExList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.planExList li {
+  font-size: 0.88rem;
+  color: var(--text);
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.planExList li::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}

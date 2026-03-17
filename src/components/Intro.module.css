@@ -1,0 +1,138 @@
+.wrap {
+  max-width: min(92vw, 700px);
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  animation: fadeUp 0.5s ease both;
+  padding-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  padding: 5px 16px;
+  border: 1px solid rgba(255, 92, 0, 0.3);
+  border-radius: 20px;
+  background: var(--orange-dim);
+  margin-bottom: 28px;
+}
+
+/*
+  Hero heading — Syne font.
+  Font scales with viewport to keep both lines on one line each.
+  Lower bound reduced to 1.4rem so "START PROGRESSING." fits on 320px screens.
+  clamp min 1.4rem (22.4px): 18 chars × ~14px avg = ~252px < 294px container ✓
+*/
+.h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 7vw, 3.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .h1 { font-size: clamp(1.25rem, 6vw, 1.85rem); }
+}
+
+.line1 {
+  display: block;
+}
+
+.accent {
+  color: var(--orange);
+  display: block;
+}
+
+.sub {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1.4vw, 1.2rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.body {
+  font-size: 0.97rem;
+  line-height: 1.72;
+  color: var(--muted2);
+  max-width: 480px;
+  margin: 0 auto 36px;
+}
+
+.body strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.feats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-bottom: 36px;
+  text-align: left;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 13px 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: var(--muted2);
+  line-height: 1.45;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.feat:hover {
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+.featIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.cta {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 480px) {
+  .feats {
+    grid-template-columns: 1fr;
+  }
+
+  .body {
+    font-size: 0.9rem;
+  }
+
+  .cta {
+    max-width: 100%;
+    width: 100%;
+  }
+}

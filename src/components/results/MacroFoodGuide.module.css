@@ -1,0 +1,86 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.macroHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 14px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.macroName {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.macroAmount {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* macro colour accents */
+.p .macroName { color: var(--protein); }
+.c .macroName { color: var(--carbs);   }
+.f .macroName { color: var(--fats);    }
+
+.p { border-color: rgba(var(--protein-rgb, 74,222,128), 0.2); }
+.c { border-color: rgba(var(--carbs-rgb,   96,165,250), 0.2); }
+.f { border-color: rgba(var(--fats-rgb,   251,191, 36), 0.2); }
+
+.foods {
+  padding: 8px 14px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.foodRow {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.foodAmount {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.foodName {
+  color: var(--muted2);
+}
+
+.foodNote {
+  font-size: 0.67rem;
+  color: var(--muted);
+  text-align: right;
+}
+
+.caveat {
+  font-size: 0.65rem;
+  color: var(--muted);
+  padding: 6px 14px 10px;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .foodRow {
+    grid-template-columns: 72px 1fr;
+  }
+  .foodNote { display: none; }
+}

@@ -1,0 +1,13 @@
+.track {
+  height: 2px;
+  background: var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--orange), #ff9000);
+  transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(255, 92, 0, 0.4);
+}

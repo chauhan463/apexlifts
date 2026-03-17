@@ -1,0 +1,190 @@
+/* Step header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+
+.eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.9rem, 4.5vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+}
+
+.sub {
+  color: var(--muted2);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Goal selector */
+.goalList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.goalCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  background: var(--bg2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.goalCard:hover {
+  border-color: var(--border2);
+  background: var(--surface2);
+}
+
+/* Selected state — clearly distinct from hover */
+.goalActive {
+  border-color: var(--orange) !important;
+  background: var(--orange-dim) !important;
+}
+
+.goalActive .goalName {
+  color: var(--orange);
+}
+
+/* Hover on an already-selected card — keep it selected-looking */
+.goalActive:hover {
+  border-color: var(--orange) !important;
+  background: var(--orange-dim) !important;
+}
+
+.goalIcon { font-size: 1.25rem; flex-shrink: 0; }
+
+.goalName {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.15s;
+}
+
+.goalDesc {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.goalRadio {
+  margin-left: auto;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  border: 2px solid var(--border2);
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.goalActive .goalRadio {
+  border-color: var(--orange);
+  background: var(--orange);
+}
+
+/* ── Activity breakdown preview ── */
+.tdeePreview {
+  margin-top: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  animation: fadeUp 0.25s ease both;
+}
+
+.tdeeLabel {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tdeeRows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tdeeRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.83rem;
+  color: var(--muted2);
+}
+
+.tdeeRow span:last-child {
+  color: var(--orange);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+}
+
+/* ── Field error ── */
+.fieldErr {
+  font-size: 0.72rem;
+  color: var(--orange);
+  margin-top: 4px;
+}
+
+/* ── Progressive deficit section ── */
+.deficitSection {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.25s ease both;
+}
+
+.deficitLabel {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.deficitSub {
+  font-size: 0.76rem;
+  color: var(--muted2);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* ── Step hint inside pills (NEAT guide for steps) ── */
+.pillHint {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--muted);
+  margin-top: 2px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ── Mobile step headers ── */
+@media (max-width: 480px) {
+  .title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .sub   { font-size: 0.85rem; }
+  .header { margin-bottom: 20px; }
+}
