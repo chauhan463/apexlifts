@@ -100,12 +100,12 @@
   padding: 8px 12px;
 }
 .startRefLabel {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.65rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted2);
 }
 .startRefVal {
   font-family: 'Syne', sans-serif;
@@ -115,12 +115,12 @@
 }
 
 .inputLabel {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.67rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted2);
 }
 
 .inputRow {
@@ -191,12 +191,12 @@
   overflow: hidden;
 }
 .workingTitle {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.65rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted2);
   padding: 8px 14px;
   border-bottom: 1px solid var(--border);
 }
@@ -232,12 +232,12 @@
   text-align: center;
 }
 .verdictLabel {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.6rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted2);
   margin-bottom: 4px;
 }
 .verdictNum {
@@ -269,10 +269,10 @@
   text-align: center;
 }
 .newTargetLabel {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.62rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--orange);
   margin-bottom: 6px;
@@ -330,12 +330,12 @@
   padding-top: 14px;
 }
 .histTitle {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.65rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted2);
   margin-bottom: 8px;
 }
 .histTable {
@@ -359,12 +359,12 @@
 .histRow:last-child { border-bottom: none; }
 .histHead {
   background: var(--bg2);
-  font-family: 'Syne', sans-serif;
-  font-size: 0.62rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted2);
 }
 .histNote {
   font-size: 0.68rem;
@@ -386,8 +386,12 @@
   .toggleSub  { display: none; }
   .verdict    { flex-direction: column; gap: 8px; }
   .verdictArrow { transform: rotate(90deg); }
-  .histRow    { grid-template-columns: 1.6fr 1fr 1.2fr 1fr; }
-  .histRow span:nth-child(4) { display: none; } /* hide Target col on small screens */
+  /* 3-column history: Date | Real TDEE | Drift — hide Weight + Target */
+  .histRow    { grid-template-columns: 1.5fr 1fr 1fr; }
+  .histRow span:nth-child(2) { display: none; } /* Weight */
+  .histRow span:nth-child(4) { display: none; } /* Target */
   .workingRow { flex-direction: column; gap: 2px; }
   .workingRow span:last-child { text-align: left; }
+  .body { padding: 14px 12px; }
+  .newTargetNum { font-size: 1.8rem; }
 }

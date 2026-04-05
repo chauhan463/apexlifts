@@ -8,10 +8,6 @@ export default function Header() {
         <span className={styles.dot}>·</span>
         <span className={styles.lifts}>LIFTS</span>
       </div>
-      <div className={styles.badge}>
-        <span className={styles.badgeDot} />
-        AI-Powered Coach
-      </div>
     </header>
   );
 }

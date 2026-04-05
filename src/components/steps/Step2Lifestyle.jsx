@@ -19,7 +19,7 @@ const Section = ({ label, items, selected, onSelect }) => (
   </div>
 );
 
-export default function Step2Lifestyle({ form, onChange, onNext, onBack }) {
+export default function StepLifestyle({ form, onChange, onSubmit, onBack, loading, error }) {
   const canProceed = form.job && form.trainingFreq && form.steps;
 
   const handleJob      = (item) => { onChange("job", item.label); onChange("jobMultiplier", item.multiplier); };
@@ -29,7 +29,7 @@ export default function Step2Lifestyle({ form, onChange, onNext, onBack }) {
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.eyebrow}>Step 2 of 3 — Your Lifestyle</div>
+        <div className={styles.eyebrow}>Step 3 of 3 — Your Lifestyle</div>
         <h2 className={styles.title}>How do you move?</h2>
         <p className={styles.sub}>
           Job, training, and steps are calculated separately — so your desk job doesn't cancel out your 5× training week.
@@ -76,12 +76,12 @@ export default function Step2Lifestyle({ form, onChange, onNext, onBack }) {
           </div>
         )}
 
-        <button className="btn btn-primary" disabled={!canProceed} onClick={onNext}>
-          Continue →
+        {error && <div className="error-msg">{error}</div>}
+
+        <button className="btn btn-primary" disabled={!canProceed || loading} onClick={onSubmit}>
+          {loading ? "Calculating…" : "Get my numbers →"}
         </button>
-        <button className="btn btn-ghost" onClick={onBack}>
-          ← Back
-        </button>
+        <button className="btn btn-ghost" onClick={onBack}>← Back</button>
       </div>
     </>
   );

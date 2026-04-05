@@ -11,10 +11,10 @@
 
 .badge {
   display: inline-block;
-  font-family: 'Syne', sans-serif;
-  font-size: 0.68rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--orange);
   background: var(--orange-dim);
@@ -69,11 +69,11 @@
 }
 
 .stepLabel {
-  font-family: 'Syne', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   color: var(--muted2);
 }
 

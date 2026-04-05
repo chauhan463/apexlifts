@@ -54,15 +54,15 @@ const PHASE_QUESTIONS = {
   "Improve performance": "⏱ How long have you been in this performance phase?",
 };
 
-export default function Step3Goal({ form, onChange, onSubmit, onBack, loading, error }) {
+export default function StepGoal({ form, onChange, onNext, onBack }) {
   const durations  = form.goal ? DURATIONS[form.goal] : null;
   const weightMeta = form.goal ? WEIGHT_LABEL[form.goal] : null;
-  const canProceed = form.goal && form.cutDuration !== undefined;
+  const canProceed = !!form.goal;
 
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.eyebrow}>Step 3 of 3 — Your Goal</div>
+        <div className={styles.eyebrow}>Step 1 of 3 — Your Goal</div>
         <h2 className={styles.title}>What are you training for?</h2>
         <p className={styles.sub}>
           This shapes your calorie target. Be honest — it changes the numbers significantly.
@@ -78,7 +78,7 @@ export default function Step3Goal({ form, onChange, onSubmit, onBack, loading, e
               className={`${styles.goalCard}${form.goal === g.label ? ` ${styles.goalActive}` : ""}`}
               onClick={() => {
                 onChange("goal", g.label);
-                onChange("cutDuration", undefined);
+                onChange("cutDuration", 0); // auto-select "Just starting"
                 onChange("weightLost", "");
               }}
             >
@@ -92,7 +92,7 @@ export default function Step3Goal({ form, onChange, onSubmit, onBack, loading, e
           ))}
         </div>
 
-        {/* Duration question — shown for all goals once selected */}
+        {/* Duration question — shown after goal is selected */}
         {form.goal && durations && (
           <div className={styles.deficitSection}>
             <div className={styles.deficitLabel}>
@@ -131,14 +131,12 @@ export default function Step3Goal({ form, onChange, onSubmit, onBack, loading, e
           </div>
         )}
 
-        {error && <div className="error-msg">{error}</div>}
-
         <button
           className="btn btn-primary"
-          disabled={!canProceed || loading}
-          onClick={onSubmit}
+          disabled={!canProceed}
+          onClick={onNext}
         >
-          {loading ? "Calculating…" : "Calculate my numbers →"}
+          Continue →
         </button>
         <button className="btn btn-ghost" onClick={onBack}>← Back</button>
       </div>

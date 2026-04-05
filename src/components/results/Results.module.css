@@ -133,32 +133,82 @@
 .macroNm { font-size: 0.72rem; color: var(--muted2); margin-top: 5px; }
 .macroKc { font-size: 0.66rem; color: var(--muted);  margin-top: 2px; }
 
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tabBtn {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 0.8rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  min-height: 44px;
+}
+
+.tabBtn:hover { color: var(--text); }
+
+.tabActive {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+
+.tabPanel {
+  animation: fadeUp 0.25s ease both;
+}
+
+.footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
 /* ── Mobile ── */
 @media (max-width: 480px) {
-  .wrap { padding: 0 4px; }
+  .wrap { padding: 0 2px; }
 
+  .hero { margin-bottom: 20px; padding-bottom: 16px; }
   .heading { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+  .tag { font-size: 0.76rem; }
 
-  .statNum  { font-size: 1.5rem; }
-  .statUnit { font-size: 0.6rem; }
-  .statLabel{ font-size: 0.62rem; }
+  .statNum  { font-size: 1.45rem; }
+  .statUnit { font-size: 0.58rem; }
+  .statLabel{ font-size: 0.6rem; }
+  .statTile  { padding: 14px 8px; }
 
   /* Macros: protein full-width on top, carbs+fats side by side below */
-  .macrosGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .macroTile:first-child {
-    grid-column: 1 / -1;
-  }
-
+  .macrosGrid { grid-template-columns: 1fr 1fr; }
+  .macroTile:first-child { grid-column: 1 / -1; }
   .macroG   { font-size: 1.5rem; }
   .macroNm  { font-size: 0.7rem; }
+  .macroTile { padding: 14px 12px; }
 
-  .statTile  { padding: 14px 10px; }
-  .macroTile { padding: 16px 14px; }
+  .tabs { margin-bottom: 18px; }
+  .tabBtn { padding: 10px 12px; font-size: 0.72rem; }
 }
 
 @media (max-width: 360px) {
   .heading { font-size: clamp(1.4rem, 7.5vw, 1.8rem); }
   .statsGrid { grid-template-columns: 1fr 1fr; }
+  .tabBtn { padding: 10px 10px; font-size: 0.68rem; letter-spacing: 0.02em; }
 }

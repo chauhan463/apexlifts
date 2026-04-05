@@ -123,16 +123,83 @@
 }
 
 @media (max-width: 480px) {
+  .eyebrow { margin-bottom: 16px; font-size: 0.65rem; }
+
+  .h1 { font-size: clamp(1.25rem, 6vw, 1.85rem); margin-bottom: 8px; }
+
+  .sub { margin-bottom: 16px; }
+
+  /* Body text is redundant with features on mobile — hide to cut scroll */
+  .body { display: none; }
+
   .feats {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 24px;
   }
 
-  .body {
-    font-size: 0.9rem;
-  }
+  .feat { padding: 10px 12px; font-size: 0.78rem; }
 
   .cta {
     max-width: 100%;
     width: 100%;
   }
+}
+
+/* ── Session continuation banner ── */
+.sessionBanner {
+  width: 100%;
+  max-width: 400px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sessionText {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+  color: var(--muted2);
+  text-align: left;
+  line-height: 1.45;
+}
+.sessionText strong { color: var(--text); font-weight: 600; }
+.sessionIcon { font-size: 1.1rem; flex-shrink: 0; }
+
+.sessionBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sessionBtns .btn { margin-top: 0; }
+
+/* ── CTA group (normal flow) ── */
+.ctaGroup {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.ctaSecondary { margin-top: 0; }
+
+/* ── Trust signals ── */
+.trust {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 10px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .ctaGroup { max-width: 100%; }
+  .sessionBanner { max-width: 100%; }
 }

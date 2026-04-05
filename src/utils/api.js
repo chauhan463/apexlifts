@@ -1,6 +1,6 @@
 // ─── Gemini API ───────────────────────────────────────────────────────────────
 // Replace with your key from https://aistudio.google.com
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "AIzaSyCo65MnSf3ai7lUSc-2cCSYXBZVgXlIBbs";
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
 
 
 // Models tried in order — if one hits quota, falls back to the next

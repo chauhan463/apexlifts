@@ -7,16 +7,15 @@ export const toKg = (value, unit) =>
 
 export const toCm = (value, unit) => {
   if (unit === "cm") return +value;
-  const str = String(value).replace(/['"]/g, "");
+  const str = String(value).trim();
+  // "5'10" or "5'10\"" format
   if (str.includes("'")) {
-    const [ft, inch] = str.split("'");
-    return +ft * 30.48 + (+inch || 0) * 2.54;
+    const [ft, rest] = str.split("'");
+    const inch = parseFloat(rest) || 0;
+    return +ft * 30.48 + inch * 2.54;
   }
-  if (str.includes(".")) {
-    const [ft, inch] = str.split(".");
-    return +ft * 30.48 + (+inch || 0) * 2.54;
-  }
-  return +str * 2.54;
+  // Plain feet (from the two-input UI, inches handled separately via "ft'in" string)
+  return +str * 30.48;
 };
 
 // ─── Core calculations ────────────────────────────────────────────────────────
