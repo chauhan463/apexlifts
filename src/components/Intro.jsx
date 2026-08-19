@@ -2,7 +2,7 @@ import styles from "./Intro.module.css";
 
 const FEATURES = [
   ["📊", "Calories & macros calculated for your exact body"],
-  ["🤖", "Personal AI insight based on your job & lifestyle"],
+  ["🔄", "7-day check-in that recalibrates your real TDEE"],
   ["🏋️", "Custom weekly training split"],
   ["🍽️", "Diet gap analysis vs your real targets"],
 ];
@@ -22,8 +22,8 @@ export default function Intro({ onStart, savedSession, stepNames, onContinue, on
       <p className={styles.body}>
         Generic plans don't work because{" "}
         <strong>you're not generic.</strong> Get your exact maintenance
-        calories, personalised macros, and an AI coach that actually
-        understands your lifestyle — in under 2 minutes.
+        calories, personalised macros, and a training split built around
+        your goal — in under 2 minutes.
       </p>
 
       <div className={styles.feats}>

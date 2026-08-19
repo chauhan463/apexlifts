@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { DAYS } from "../../constants";
+import { DAYS, PLAN_STORAGE_KEY } from "../../constants";
+import { loadPlan } from "../../utils/trainingPlan";
 import styles from "./TrainingPlan.module.css";
 
 // Static training templates by goal
@@ -22,20 +23,42 @@ const TEMPLATES = {
   },
 };
 
+/**
+ * Day-count → split pattern.
+ *
+ * Chosen to hit each muscle group ≥2×/week wherever the day count allows —
+ * training frequency is a bigger hypertrophy driver than session volume once
+ * weekly sets are held constant (Schoenfeld, Ogborn & Krieger, Sports Med 2016).
+ * A 3-day Push/Pull/Legs split (each muscle trained once/week) is a common
+ * beginner default but is the *lowest*-frequency option at that day count —
+ * Upper/Lower or Full Body both roughly double effective frequency for the
+ * same weekly volume, so those are preferred here.
+ */
+const SEQUENCES = {
+  1: ["full"],                                                  // Full Body — only one session/week, nothing to rotate
+  2: ["upper", "lower"],                                        // U/L — max frequency achievable at 2 days (1×/muscle)
+  3: ["full", "full", "full"],                                  // Full Body every other day — 3×/week per muscle
+  4: ["upper", "lower", "upper", "lower"],                      // U/L/U/L — 2×/week per muscle
+  5: ["push", "pull", "legs", "upper", "lower"],                // PPL + U/L — chest/back/shoulders/legs all 2×/week
+  6: ["push", "pull", "legs", "push", "pull", "legs"],          // PPL ×2 — every muscle 2×/week
+  7: ["push", "pull", "legs", "push", "pull", "legs", "full"],  // PPL ×2 + a Full Body top-up day
+};
+
+const SEQUENCE_LABELS = {
+  1: "Full Body",
+  2: "Upper / Lower",
+  3: "Full Body — every other day",
+  4: "Upper / Lower / Upper / Lower",
+  5: "Push / Pull / Legs / Upper / Lower",
+  6: "Push / Pull / Legs ×2",
+  7: "Push / Pull / Legs ×2 + Full Body",
+};
+
 // Assign workout types to selected days
 const buildPlan = (selectedDays, goal) => {
   const template = TEMPLATES[goal] || TEMPLATES["Build muscle"];
   const n = selectedDays.length;
-  const sequences = {
-    1: ["full"],
-    2: ["upper", "lower"],
-    3: ["push", "pull", "legs"],
-    4: ["push", "pull", "legs", "upper"],
-    5: ["push", "pull", "legs", "upper", "lower"],
-    6: ["push", "pull", "legs", "push", "pull", "legs"],
-    7: ["push", "pull", "legs", "upper", "lower", "full", "push"],
-  };
-  const seq = sequences[n] || sequences[3];
+  const seq = SEQUENCES[n] || SEQUENCES[3];
   return selectedDays.map((day, i) => ({
     day,
     session: template[seq[i]] || template.full,
@@ -43,8 +66,8 @@ const buildPlan = (selectedDays, goal) => {
 };
 
 export default function TrainingPlan({ form, results }) {
-  const [selectedDays, setSelectedDays] = useState([]);
-  const [plan, setPlan]                 = useState(null);
+  const [selectedDays, setSelectedDays] = useState(() => loadPlan(form.goal)?.selectedDays || []);
+  const [plan, setPlan]                 = useState(() => loadPlan(form.goal)?.sessions || null);
 
   const toggleDay = (d) =>
     setSelectedDays((ds) =>
@@ -55,7 +78,13 @@ export default function TrainingPlan({ form, results }) {
     if (!selectedDays.length) return;
     // Sort days in Mon→Sun order
     const ordered = DAYS.filter(d => selectedDays.includes(d));
-    setPlan(buildPlan(ordered, form.goal));
+    const sessions = buildPlan(ordered, form.goal);
+    setPlan(sessions);
+    try {
+      localStorage.setItem(PLAN_STORAGE_KEY, JSON.stringify({
+        goal: form.goal, selectedDays: ordered, sessions, builtAt: Date.now(),
+      }));
+    } catch { /* storage unavailable */ }
   };
 
   return (
@@ -80,6 +109,10 @@ export default function TrainingPlan({ form, results }) {
         ))}
       </div>
 
+      {selectedDays.length > 0 && (
+        <p className={styles.patternHint}>{SEQUENCE_LABELS[selectedDays.length]}</p>
+      )}
+
       <button
         className="btn btn-primary btn-sm"
         disabled={!selectedDays.length}
@@ -90,6 +123,7 @@ export default function TrainingPlan({ form, results }) {
 
       {plan && (
         <div className={styles.planOut}>
+          <div className={styles.planLabel}>{SEQUENCE_LABELS[plan.length] || ""}</div>
           {plan.map(({ day, session }) => (
             <div className={styles.planDay} key={day}>
               <div className={styles.planDayName}>{day} — <span>{session.name}</span></div>

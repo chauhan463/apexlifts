@@ -28,7 +28,6 @@ const drawCard = (canvas, form, results) => {
   ctx.fillStyle = "#ff5c00";
   ctx.fillText("·LIFTS", 222, 110);
 
-  // "AI-Powered Coach" badge
   ctx.font = "500 22px Arial, sans-serif";
   ctx.fillStyle = "#555555";
   ctx.fillText("Science-backed · Free", 80, 148);

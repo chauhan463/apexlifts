@@ -8,6 +8,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+
+/* Ambient glow behind the hero — pure atmosphere, no layout weight */
+.wrap::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  width: 480px;
+  height: 320px;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(255, 92, 0, 0.14), transparent);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (max-width: 480px) {
+  .wrap::before { width: 320px; height: 220px; top: -40px; }
 }
 
 .eyebrow {
@@ -102,12 +122,19 @@
   font-size: 0.84rem;
   color: var(--muted2);
   line-height: 1.45;
-  transition: border-color 0.18s, color 0.18s;
+  transition: border-color 0.18s, color 0.18s, transform 0.18s;
+  animation: fadeUp 0.45s ease both;
 }
+
+.feat:nth-child(1) { animation-delay: 0.05s; }
+.feat:nth-child(2) { animation-delay: 0.11s; }
+.feat:nth-child(3) { animation-delay: 0.17s; }
+.feat:nth-child(4) { animation-delay: 0.23s; }
 
 .feat:hover {
   border-color: var(--border2);
   color: var(--text);
+  transform: translateY(-1px);
 }
 
 .featIcon {

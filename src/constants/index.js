@@ -40,3 +40,9 @@ export const GOAL_ADJUSTMENTS = {
   "Maintain weight":       0,
   "Improve performance": +150,
 };
+
+// Shared localStorage keys — kept in one place so components that both
+// read and write the same data (Dashboard + TrainingPlan / CheckIn) can't drift.
+export const PLAN_STORAGE_KEY    = "apexlifts_plan";
+export const CHECKIN_STORAGE_KEY = "apexlifts_checkins";
+export const WORKOUT_LOG_STORAGE_KEY = "apexlifts_logs";

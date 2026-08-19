@@ -79,7 +79,7 @@ export default function StepLifestyle({ form, onChange, onSubmit, onBack, loadin
         {error && <div className="error-msg">{error}</div>}
 
         <button className="btn btn-primary" disabled={!canProceed || loading} onClick={onSubmit}>
-          {loading ? "Calculating…" : "Get my numbers →"}
+          {loading ? <><span className={styles.btnSpinner} /> Calculating…</> : "Get my numbers →"}
         </button>
         <button className="btn btn-ghost" onClick={onBack}>← Back</button>
       </div>

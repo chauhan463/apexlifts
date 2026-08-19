@@ -1,0 +1,139 @@
+.wrap {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeUp 0.4s ease both;
+}
+
+.greetHead { margin-bottom: 2px; }
+
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 6px;
+}
+
+.greet {
+  font-family: 'Syne', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  letter-spacing: -0.02em;
+}
+
+/* ── Today's workout ── */
+.heroCard { border-color: var(--border2); }
+
+.cardHeadRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.loggedBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(57, 211, 83, 0.1);
+  border: 1px solid rgba(57, 211, 83, 0.25);
+  padding: 3px 9px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.empty p { color: var(--muted2); font-size: 0.88rem; }
+.empty button { width: auto; margin-top: 0; }
+
+.sessionName {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+.exList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 14px;
+}
+.exList li {
+  font-size: 0.9rem;
+  color: var(--text);
+  padding: 10px 12px;
+  background: var(--bg2);
+  border-radius: var(--radius-xs);
+  border-left: 2px solid var(--orange);
+}
+
+.rest { text-align: left; }
+.restLabel {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+.restNext { color: var(--muted2); font-size: 0.86rem; }
+.restNext strong { color: var(--text); }
+
+/* ── Aim for today ── */
+.targetRow { display: flex; gap: 32px; }
+.targetStat { display: flex; flex-direction: column; }
+.targetNum {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  color: var(--orange);
+  line-height: 1;
+}
+.targetUnit { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
+/* ── Recent progress ── */
+.progressStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.progressStack > *:not(:last-child) {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.progressRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.86rem;
+  color: var(--muted2);
+}
+.green  { color: var(--green); }
+.amber  { color: var(--gold);  }
+.muted  { color: var(--muted2); }
+
+.emptyNote {
+  color: var(--muted2);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+/* ── Footer nav ── */
+.footerRow { display: flex; gap: 10px; margin-top: 4px; }
+.footerRow button { width: auto; flex: 1; margin-top: 0; }
+
+@media (max-width: 480px) {
+  .footerRow { flex-direction: column; }
+}

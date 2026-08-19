@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { toKg } from "../../utils/calculations";
+import { CHECKIN_STORAGE_KEY as STORAGE_KEY } from "../../constants";
 import styles from "./CheckIn.module.css";
-
-const STORAGE_KEY = "apexlifts_checkins";
 
 function loadHistory() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }

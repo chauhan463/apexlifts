@@ -52,6 +52,12 @@
 
 .dayCheck { font-size: 0.6rem; opacity: 0.8; }
 
+.patternHint {
+  font-size: 0.78rem;
+  color: var(--muted2);
+  margin-bottom: 12px;
+}
+
 .planOut {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -60,6 +66,16 @@
   margin-top: 12px;
   animation: fadeUp 0.4s ease both;
   overflow: hidden;
+}
+
+.planLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  padding: 14px 22px 0;
 }
 
 .planDay {

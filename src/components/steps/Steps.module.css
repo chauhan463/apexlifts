@@ -59,6 +59,13 @@
 .goalActive {
   border-color: var(--orange) !important;
   background: var(--orange-dim) !important;
+  animation: goalPulse 0.3s ease;
+}
+
+@keyframes goalPulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.015); }
+  100% { transform: scale(1); }
 }
 
 .goalActive .goalName {
@@ -227,6 +234,18 @@
   gap: 0;
   animation: fadeUp 0.2s ease both;
 }
+
+/* ── Button spinner (loading state) ── */
+.btnSpinner {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  animation: btnSpin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes btnSpin { to { transform: rotate(360deg); } }
 
 /* ── Live calorie preview ── */
 .preview {

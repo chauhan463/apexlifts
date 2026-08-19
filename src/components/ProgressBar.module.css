@@ -1,8 +1,11 @@
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
 .track {
   height: 2px;
   background: var(--border);
-  position: relative;
-  z-index: 1;
 }
 
 .fill {
@@ -10,4 +13,69 @@
   background: linear-gradient(90deg, var(--orange), #ff9000);
   transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 0 8px rgba(255, 92, 0, 0.4);
+}
+
+/* ── Step indicator ── */
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 14px 20px 12px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+.stepDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border2);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.stepName {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.step.active .stepDot {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #fff;
+  box-shadow: var(--orange-glow);
+}
+.step.active .stepName { color: var(--text); font-weight: 700; }
+
+.step.done .stepDot {
+  border-color: var(--orange);
+  background: var(--orange-dim);
+  color: var(--orange);
+}
+.step.done .stepName { color: var(--muted2); }
+
+.step.upcoming .stepDot { color: var(--muted); }
+
+@media (max-width: 560px) {
+  .steps { gap: 20px; padding: 12px 12px 10px; }
+  .stepName { display: none; }
+  .stepDot { width: 26px; height: 26px; font-size: 0.8rem; }
 }
